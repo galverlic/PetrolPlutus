@@ -40,7 +40,7 @@
         let message = "";
 
         if(cenaPoloznice > 1000.00){
-            message = "Najvišji znesek poloznice je 1000€!";
+            message = "Najvišji znesek položnice je 1000€!";
         } else {
             let cenaZaPlacilo = 0.00;
             if(cenaPoloznice <= 1000.00 && cenaPoloznice >= 501.01){
@@ -72,7 +72,7 @@
     <h1>PROGRAM ZA PREVERJANJE ČE SE SPLAČA POLOŽNICO PLAČAT NA PETROL PUMPI</h1>
     <form onsubmit="event.preventDefault(); calculate();">
         <label for="cenaPoloznice">
-            Vnesite ceno poloznice:
+            Vnesite ceno položnice:
         </label>
         <input type="number" step="0.01" min="0" max="1000" id="cenaPoloznice">
         <input type="submit" value="Calculate">
