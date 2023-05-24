@@ -2,6 +2,38 @@
 <html>
 <head>
     <title>Poloznica Check</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f7f7f7;
+        }
+        h1 {
+            color: #333;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        input[type="number"] {
+            padding: 10px;
+            width: 200px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+        input[type="submit"] {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007BFF;
+            color: #fff;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
     <script>
     function calculate() {
         const cenaPoloznice = parseFloat(document.getElementById('cenaPoloznice').value);
@@ -37,7 +69,7 @@
     </script>
 </head>
 <body>
-    <h1>PROGRAM ZA PREVERJANJE CE SE SPLAČA POLOZNICO PLACAT NA PETROL PUMPI</h1>
+    <h1>PROGRAM ZA PREVERJANJE CE SE SPLAČA POLOŽNICO PLAČAT NA PETROL PUMPI</h1>
     <form onsubmit="event.preventDefault(); calculate();">
         <label for="cenaPoloznice">
             Vnesite ceno poloznice(pri tem uporabite decimalen nacin(23.00 namesto 23 npr)):
