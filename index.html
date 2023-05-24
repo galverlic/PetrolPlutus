@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Poloznica Check</title>
+    <script>
+    function calculate() {
+        const cenaPoloznice = parseFloat(document.getElementById('cenaPoloznice').value);
+        let message = "";
+
+        if(cenaPoloznice > 1000.00){
+            message = "Najvisji znesek poloznice je 1000€!";
+        } else {
+            let cenaZaPlacilo = 0.00;
+            if(cenaPoloznice <= 1000.00 && cenaPoloznice >= 501.01){
+                cenaZaPlacilo = cenaPoloznice + 6.75;
+                message = "Provizija je tu 6.75€, tako da je cena za placilo: " + cenaZaPlacilo.toFixed(2) + "€";
+            } else if(cenaPoloznice >= 98.00 && cenaPoloznice <= 501){
+                cenaZaPlacilo = (cenaPoloznice * 0.0135) + cenaPoloznice;
+                message = "Provizija je tu 1.35% vrednosti transakcije, tako da je cena za placilo: " + cenaZaPlacilo.toFixed(2) + "€";
+            } else if(cenaPoloznice >= 0.00 && cenaPoloznice <= 97.99){
+                cenaZaPlacilo = cenaPoloznice + 1.35;
+                message = "Provizija je tu 1.35€, tako da je cena za placilo: " + cenaZaPlacilo.toFixed(2) + "€";
+            }
+
+            const cashback = cenaZaPlacilo * 0.03;
+            message += "\nZ plutusom se pridobili cashbacka približno: " + cashback.toFixed(2) + "€";
+
+            if((cenaZaPlacilo - cashback) <= cenaPoloznice){
+                message += "\nSe splaca!";
+            } else{
+                message += "\nSe NE splaca!";
+            }
+        }
+
+        alert(message);
+    }
+    </script>
+</head>
+<body>
+    <h1>PROGRAM ZA PREVERJANJE CE SE SPLACA POLOZNICO PLACAT NA PETROL PUMPI</h1>
+    <form onsubmit="event.preventDefault(); calculate();">
+        <label for="cenaPoloznice">
+            Vnesite ceno poloznice(pri tem uporite decimalen nacin(23.00 namesto 23 npr)):
+        </label>
+        <input type="number" step="0.01" min="0" max="1000" id="cenaPoloznice">
+        <input type="submit" value="Calculate">
+    </form>
+</body>
+</html>
